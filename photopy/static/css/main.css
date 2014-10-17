@@ -1,0 +1,61 @@
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+#header {
+background: #D8D8D8;
+border-radius: 2px;
+margin:	 0 auto;
+padding: 2px;
+}
+
+#body {
+background: #D8D8D8;
+margin: 0 auto;
+width: 100%
+}
+
+#content {
+display: inline-block;
+margin-right: 6%;
+margin-left: 6%;
+float: left;
+width: 60	%;
+vertical-align:top;
+}
+
+#sidebar {
+background: #CCC;
+border-radius: 5px;
+display: inline-block;
+float: right;
+margin-right: 6%;
+padding: 10px; 
+vertical-align:top;
+width: 20%;
+}
+
+#footer {
+clear: both;
+background: #eee;
+padding: 20px;
+}
+
+h1 {
+	text-align: center;
+}
+  
+
+
+
+
+
+
+
+
+
+
+
+

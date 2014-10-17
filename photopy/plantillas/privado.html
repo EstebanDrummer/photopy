@@ -1,0 +1,20 @@
+{% extends 'base.html'%}
+{% load bootstrap3 %}
+{% block titulo %} Bienvenido{% endblock %}
+{% block encabezado %}
+	<h1> Bienvenido a PhotoPY </h1>
+{% endblock %}
+{% block sidebar %}
+	<p>Estas logueado como {{usuario.username|upper}}</p>
+	<p> la última vez que estuviste aquí fue el {{usuario.last_login}}</p>
+	<p>Eres miembro desde {{usuario.date_joined}}</p>
+	<a href='/cerrar'>Cerrar Sesión</a>
+{% endblock %}
+{% block contenido %}
+	<p>¿Qué album deseas ver?</p>
+	<ul>
+	{% for item in listaUsuarios %}
+		<li><a href=''>{{ item.username }}</a> </li>
+	{% endfor %}
+	</ul>
+{% endblock %}

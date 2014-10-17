@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Mi lista{% endblock %}
+
+{% block contenido %}
+        <ul>
+            <li><a href="/">Home</a></li>
+        </ul>
+<table border='1'> 
+<tr>
+	<td><strong> Documento </strong></td>
+	<td><strong> Nombre </strong></td>
+	<td><strong> Fecha de Nacimiento </strong></td>
+	<td><strong> Sueldo </strong></td>
+	<td><strong> Sexo </strong></td>
+</tr>     
+{% for item in empleados %}
+    <tr> 
+    	<td>{{ item.documento }}</td> 
+    	<td>{{ item.nombre }} </td> 
+    	<td>{{ item.fecha_nacimiento }}</td> 
+    	<td>{{ item.Sueldo }} </td> 
+    	<td>{{ item.Sexo }}
+    	{% if item.Sexo == "Femenino" %}
+		    <img src="/static/img/female.png" width="10%" height="10%"/>
+		{% elif item.Sexo == "Masculino" %}
+		    <img src="/static/img/male.png" width="10%" height="10%"/>
+		{% endif %}</td> 
+    </tr>
+{% endfor %}
+</table>  
+{% endblock %}

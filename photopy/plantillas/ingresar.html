@@ -1,0 +1,22 @@
+{% extends 'base.html'%}
+{% load bootstrap3 %}
+{% block titulo %} Ingresa al sistema{% endblock %}
+{% block encabezado %}
+	<h1> Bienvenido a PhotoPY </h1>
+{% endblock %}
+{% block sidebar %}
+	<form id='formulario' method='post' action=''> 
+		{% csrf_token %}
+		{% bootstrap_form formulario layout="vertical"%}
+		{% buttons %}
+        <button type="submit" class="btn btn-primary" value='Ingresar'>
+             Ingresar
+        </button>
+    	{% endbuttons %}
+	</form>
+            <a href="/usuario/nuevo">Crear un usuario</a>
+{% endblock %}
+
+ {% block contenido %}
+ 	¡Bienvenido a photopy, un album de fotos hecho en Django!
+ {% endblock %}
