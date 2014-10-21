@@ -6,6 +6,7 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
+from PhotoBook.models import Album, Foto
 
 def nuevo_usuario(request):
 	if request.method=='POST':
@@ -43,6 +44,13 @@ def privado(request):
 	usuario = request.user
 	listaUsuarios = User.objects.all()
 	return render_to_response('privado.html',{'usuario':usuario, 'listaUsuarios':listaUsuarios}, context_instance=RequestContext(request))
+
+@login_required(login_url='/ingresar')
+def listaAlbum(request, var):
+	usuario = User.objects.get(username=var)
+	pk = usuario.id
+	listaAlbum = Album.objects.filter(usuario_id=pk)
+	return render_to_response('listaAlbum.html',{'listaAlbum':listaAlbum}, context_instance=RequestContext(request))
 
 @login_required(login_url='/ingresar')
 def cerrar(request):
