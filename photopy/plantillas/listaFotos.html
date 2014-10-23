@@ -12,10 +12,9 @@
 	<a href='/cerrar'>Cerrar Sesión</a>
 {% endblock %}
 {% block contenido %}
-	<p>¿Qué album deseas ver?</p>
-	<ul>
-	{% for item in listaAlbum %}
-		<li><a href='/foto/{{item.nombre}}'>{{ item.nombre }}</a> </li>
+	<ul class = 'lista'>
+	{% for item in listaFotos %}
+		<li> <a href="/media/{{item.fuente}}"><img class="item" src="{{item.fuente.url}}" /></a> </li>
 	{% endfor %}
 	</ul>
 {% endblock %}

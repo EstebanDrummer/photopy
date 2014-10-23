@@ -53,6 +53,14 @@ def listaAlbum(request, var):
 	return render_to_response('listaAlbum.html',{'listaAlbum':listaAlbum}, context_instance=RequestContext(request))
 
 @login_required(login_url='/ingresar')
+def listaFoto(request, var):
+	album = Album.objects.get(nombre=var)
+	pk = album.id
+	listaFotos=Foto.objects.filter(album_id=pk, es_publica=1)
+	return render_to_response('listaFotos.html',{'listaFotos':listaFotos}, context_instance=RequestContext(request))
+
+
+@login_required(login_url='/ingresar')
 def cerrar(request):
 	logout(request)
 	return HttpResponseRedirect('/ingresar')	
