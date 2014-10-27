@@ -56,7 +56,10 @@ def listaAlbum(request, var):
 def listaFoto(request, var):
 	album = Album.objects.get(nombre=var)
 	pk = album.id
-	listaFotos=Foto.objects.filter(album_id=pk, es_publica=1)
+	if request.user.has_perm('can_view_all') or (request.user.id==album.usuario_id):
+		listaFotos=Foto.objects.filter(album_id=pk)
+	else:
+		listaFotos=Foto.objects.filter(album_id=pk,es_publica='1')	
 	return render_to_response('listaFotos.html',{'listaFotos':listaFotos}, context_instance=RequestContext(request))
 
 

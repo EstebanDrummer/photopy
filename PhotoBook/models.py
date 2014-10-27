@@ -23,4 +23,9 @@ class Foto(models.Model):
 
 	def __str__(self):
 		return self.nombre
+
+	class Meta:
+		permissions = (
+			("can_view_all", "puede ver todo"),
+			("can_view", "puede ver"),)
 	
