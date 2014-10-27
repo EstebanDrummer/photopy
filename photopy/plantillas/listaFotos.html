@@ -8,14 +8,13 @@
 	<p>Estas logueado como {{usuario.username|upper}}</p>
 	<p> la última vez que estuviste aquí fue el {{usuario.last_login}}</p>
 	<p>Eres miembro desde {{usuario.date_joined}}</p>
-	<a href='/'>Inicio</a><br>
+	<a href='/'>Inicio</a> <br>
 	<a href='/cerrar'>Cerrar Sesión</a>
 {% endblock %}
 {% block contenido %}
-	<p>¿Qué album deseas ver?</p>
-	<ul>
-	{% for item in listaUsuarios %}
-		<li><a href='/album/{{item.username}}/'>{{ item.username }}</a> </li>
+	<ul class = 'lista'>
+	{% for item in listaFotos %}
+		<li> <a href="/media/{{item.fuente}}"><img class="item" src="{{item.fuente.url}}" /></a> </li>
 	{% endfor %}
 	</ul>
 {% endblock %}

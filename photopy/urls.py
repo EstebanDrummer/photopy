@@ -1,5 +1,6 @@
 from django.conf.urls import patterns, include, url
-
+from django.conf import settings
+from django.conf.urls.static import static
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
@@ -18,4 +19,6 @@ urlpatterns = patterns('',
     url(r'^ingresar/$', 'PhotoBook.views.ingresar'),
     url(r'^privado/$', 'PhotoBook.views.privado'),
     url(r'^cerrar/$', 'PhotoBook.views.cerrar'),
-)
+    url(r'^album/([a-z0-9]{1,20})/$', 'PhotoBook.views.listaAlbum'),
+    url(r'^foto/([a-zA-Z0-9]{1,20})/$', 'PhotoBook.views.listaFoto'),
+)+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
