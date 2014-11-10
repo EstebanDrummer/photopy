@@ -8,14 +8,17 @@
 	<p>Estas logueado como {{usuario.username|upper}}</p>
 	<p> la última vez que estuviste aquí fue el {{usuario.last_login}}</p>
 	<p>Eres miembro desde {{usuario.date_joined}}</p>
-	<a href='/'>Inicio</a><br>
+	<a href='/'>Inicio</a> <br>
 	<a href='/cerrar'>Cerrar Sesión</a>
 {% endblock %}
 {% block contenido %}
-	<p>¿Deseas ver los albumnes de quién?</p>
-	<ul>
-	{% for item in listaUsuarios %}
-		<li><a href='/album/{{item.username}}/'>{{ item.username }}</a> </li>
-	{% endfor %}
+	<ul class = 'lista'>
+		<p>Estas viendo las fotos de {{duenio.username}}</p>	
+		
+		 <a href="/media/{{fotoInfo.fuente}}"><img class="item2" src="{{fotoInfo.fuente.url}}" /></a> 
+		 <p>Nombre de la imagen : {{fotoInfo.nombre}}</p>
+		 <p>Album : <a href="/foto/{{album.nombre}}/"> {{album.nombre}}</a></p>
+		 <p>Propietario de la foto : <a href="/album/{{duenio.username}}/"> {{duenio.username}}</p>
+		
 	</ul>
 {% endblock %}

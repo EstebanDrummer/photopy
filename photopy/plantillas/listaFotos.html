@@ -12,9 +12,15 @@
 	<a href='/cerrar'>Cerrar Sesión</a>
 {% endblock %}
 {% block contenido %}
-	<ul class = 'lista'>
+	<p>Estas viendo las fotos de {{nombreDuenio}}</p>
+	<h2>{{nombreAlbum}} </h2>
+	<ul class = 'lista'>	
 	{% for item in listaFotos %}
-		<li> <a href="/media/{{item.fuente}}"><img class="item" src="{{item.fuente.url}}" /></a> </li>
+		<!--<a href="/media/{{item.fuente}}"> </a>-->
+		<a href='/foto/fotoInfo/{{item.nombre}}'>
+			<img class='item' src="{{item.fuente.url}}" border='0' alt='Un maravilloso jardín'/>	
+		</a>
+		
 	{% endfor %}
 	</ul>
 {% endblock %}
