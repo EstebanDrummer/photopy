@@ -7,6 +7,8 @@ from django.template import RequestContext
 from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
 from PhotoBook.models import Album, Foto
+from PhotoBook.forms import AlbumForm
+
 
 def nuevo_usuario(request):
 	if request.method=='POST':
@@ -17,6 +19,18 @@ def nuevo_usuario(request):
 	else:
 		formulario = UserCreationForm()
 	return render_to_response('nuevousuario.html', {'formulario': formulario}, context_instance=RequestContext(request))
+
+def add_Album(request):
+	if request.method == 'POST':
+		form = AlbumForm(request.POST)
+		if form.is_valid():
+			form.save()
+
+			return HttpResponseRedirect('/privado')
+	else:
+		form =AlbumForm()
+	return render_to_response('album_form.html', {'formulario': form}, context_instance=RequestContext(request))
+			
 
 def ingresar(request):
 	if not request.user.is_anonymous():
