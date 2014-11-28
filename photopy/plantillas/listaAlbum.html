@@ -12,7 +12,7 @@
 	<a href='/cerrar'>Cerrar Sesión</a>
 {% endblock %}
 {% block contenido %}
-	<p>¿Qué album deseas ver?</p>
+	<p>Estas viendo los albumnes de {{nombreDuenio}}</p>
 	<ul>
 	{% for item in listaAlbum %}
 		<li><a href='/foto/{{item.nombre}}'>{{ item.nombre }}</a> </li>

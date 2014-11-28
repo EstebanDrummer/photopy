@@ -1,4 +1,5 @@
 from django.db import models
+from django.forms import ModelForm
 from django.contrib.auth.models import User
 
 class Album(models.Model):
@@ -23,4 +24,9 @@ class Foto(models.Model):
 
 	def __str__(self):
 		return self.nombre
+
+	class Meta:
+		permissions = (
+			("can_view_all", "puede ver todo"),
+			("can_view", "puede ver"),)
 	

@@ -21,4 +21,6 @@ urlpatterns = patterns('',
     url(r'^cerrar/$', 'PhotoBook.views.cerrar'),
     url(r'^album/([a-z0-9]{1,20})/$', 'PhotoBook.views.listaAlbum'),
     url(r'^foto/([a-zA-Z0-9]{1,20})/$', 'PhotoBook.views.listaFoto'),
+    url(r'^foto/fotoInfo/([a-zA-Z0-9\w.@\-]{1,20})/$', 'PhotoBook.views.fotoInfo'),
+    url(r'^usuario/add_album$', 'PhotoBook.views.add_Album'),
 )+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
